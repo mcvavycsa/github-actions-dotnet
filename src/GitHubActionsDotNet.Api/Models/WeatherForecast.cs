@@ -10,5 +10,3 @@ public record WeatherForecast
 
     public string? Summary { get; init; }
 }
-
-//Added a new line to the end of the file
