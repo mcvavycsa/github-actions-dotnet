@@ -1,4 +1,4 @@
-name: PR Verify
+name: CI
 
 env:
   AZURE_WEBAPP_NAME: your-app-name    # set this to the name of your Azure Web App
@@ -6,15 +6,12 @@ env:
   DOTNET_VERSION: 8.0                  # set this to the .NET Core version to use
 
 on:
-  pull_request:
+  push:
     branches: [ "main" ]
-
-permissions:
-  contents: read
 
 jobs:
   build:
-    name: PR Verify
+    name: CI
     runs-on: ubuntu-latest
 
     steps:
@@ -25,11 +22,9 @@ jobs:
         with:
           dotnet-version: ${{ env.DOTNET_VERSION }}
 
-      - name: Build with dotnet
-        run: dotnet build --configuration Release
-
       - name: dotnet test
-        run: dotnet test --configuration Release --no-build
+        run: dotnet test --configuration Release
 
-      - name: dotnet format
-        run: dotnet format -v detailed --verify-no-changes
+      - name: dotnet publish
+        # working-directory: src/
+        run: dotnet publish src/GitHubActionsDotNet.Api/GitHubActionsDotNet.Api.csproj --configuration Release -o artifacts
