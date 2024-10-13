@@ -1,8 +1,8 @@
-name: Run every 5 minute
+name: Run every 60 minute
 
 on:
   schedule:
-    - cron: '*/5 * * * *'
+    - cron: '* */1 * * *'
 
 jobs:
   cron:
