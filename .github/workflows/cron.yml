@@ -1,14 +1,14 @@
-name: Run every 60 minute
+# name: Run every 60 minute
 
-on:
-  schedule:
-    - cron: '* */1 * * *'
+# on:
+#   schedule:
+#     - cron: '* */1 * * *'
 
-jobs:
-  cron:
-    name: Run every 5 minute
-    runs-on: ubuntu-latest
+# jobs:
+#   cron:
+#     name: Run every 5 minute
+#     runs-on: ubuntu-latest
 
-    steps:
-      - name: Hello world
-        run: echo "Hello world"
+#     steps:
+#       - name: Hello world
+#         run: echo "Hello world"
